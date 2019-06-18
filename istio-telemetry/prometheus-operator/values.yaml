@@ -41,3 +41,7 @@ prometheus:
   # “security” and value “S1”.
   podAntiAffinityLabelSelector: []
   podAntiAffinityTermLabelSelector: []
+
+serviceMonitors:
+  # extra labels to apply to all service monitors created by this chart
+  extraLabels: {}

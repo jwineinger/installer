@@ -6,6 +6,9 @@ metadata:
   labels:
     monitoring: istio-mesh
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -25,6 +28,9 @@ metadata:
   labels:
     monitoring: istio-components
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -45,6 +51,9 @@ metadata:
   labels:
     monitoring: istio-proxies
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -77,6 +86,9 @@ metadata:
   labels:
     monitoring: kube-pods
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -122,6 +134,9 @@ metadata:
   labels:
     monitoring: kube-pods-secure
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -178,6 +193,9 @@ metadata:
   labels:
     monitoring: kube-services
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -223,6 +241,9 @@ metadata:
   labels:
     monitoring: kube-services-secure
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -279,6 +300,9 @@ metadata:
   labels:
     monitoring: kubelet-monitor
     release: {{ .Release.Name }}
+    {{- with .Values.serviceMonitors.extraLabels }}
+{{ toYaml . | trim | indent 4  }}
+    {{- end }}
 spec:
   endpoints:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
